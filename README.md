@@ -41,3 +41,7 @@
 
 Navigate to http://127.0.0.1:8000/
 
+see images below for instructions on how to play the game.
+<img src="entergame.png" alt="Italian Trulli">
+<img src="entergame2.png" alt="Italian Trulli">
+
