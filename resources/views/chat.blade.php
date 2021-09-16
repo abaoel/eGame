@@ -22,7 +22,7 @@
                 <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">{{ __('ACCELERATE') }}</button>
                 <p>{{ __('Use the Accelerate button to stay in the air.') }}</p>
                 <p>{{ __('Avoid hitting the wall.') }}</p>
-                <p>{{ __('You will be the winner if you reach 2000!') }}</p>
+                <p>{{ __('You will be the winner if you reach 2 minutes!') }}</p>
                 </br>
                 
                 {{ __('Score:') }}<p id="scoretxt">0</p>
@@ -176,7 +176,7 @@
         var curMSeconds = 0;
         function updateGameArea() 
         {
-            if( minute == 0)
+            if( minute <= 0)
             {
                 document.getElementById("timer").innerHTML = "00:00 ";
 
@@ -230,6 +230,7 @@
                         if(totalenergy <= 0)
                         {
                             clearInterval(gameInterval);
+                            clearInterval(timerInterval);
 
                             document.getElementById("energytxt").innerHTML = "0";
                             document.getElementById("percentageval").value = 0;

@@ -25,7 +25,7 @@ services:
         volumes:
             - ./mysql:/var/lib/mysql
         environment:
-            MYSQL_DATABASE: posty
+            MYSQL_DATABASE: egame
             MYSQL_ROOT_PASSWORD : abao3023
             SERVICE_TAG: dev
             SERVICE_NAME: mysql
