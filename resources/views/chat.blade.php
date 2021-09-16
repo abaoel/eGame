@@ -19,13 +19,17 @@
         <header>
 
             <div class="float-left  p-6 "  id="game_container" style="position: absolute;">
-                <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">ACCELERATE</button>
-                <p>Use the ACCELERATE button to stay in the air.</p>
-                <p>Avoid hitting the wall.</p>
+                <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">{{ __('ACCELERATE') }}</button>
+                <p>{{ __('Use the Accelerate button to stay in the air.') }}</p>
+                <p>{{ __('Avoid hitting the wall.') }}</p>
+                <p>{{ __('You will be the winner if you reach 2000!') }}</p>
                 </br>
-                </br>
+                
                 <p id="scoretxt">Score:0</p>
-                <p id="energytxt">Energy:100%</p>
+                <p id="energytxt">Energy:100</p>
+                <progress value="100" max="100" id="progressBar"></progress>
+                </br>
+                Game ends in <span id="timer">09:00<span> minutes!
                 
             </div> 
 
@@ -69,6 +73,9 @@
         var myObstacles = [];
         var totalenergy = 100;
         var gameInterval;
+        var timerInterval;
+        var minute = 1;
+        var sec = 60;
 
         //var myScore;
         
@@ -77,6 +84,22 @@
             myGamePiece.gravity = 0.05;
             //myScore = new component("30px", "Consolas", "black", 280, 40, "text");
             myGameArea.start();
+
+            timerInterval = setInterval(updateTime, 1000);
+
+            function updateTime()
+            {
+                document.getElementById("timer").innerHTML =
+                  minute + " : " + sec;
+               sec--;
+               if (sec == 00) {
+                  minute--;
+                  sec = 60;
+                  
+               }
+            }
+           
+           
         }
         
         var myGameArea = {
@@ -153,6 +176,34 @@
         var curMSeconds = 0;
         function updateGameArea() 
         {
+            if( minute == 0)
+            {
+                document.getElementById("timer").innerHTML = "00:00 ";
+
+                clearInterval(gameInterval);
+                clearInterval(timerInterval);
+                
+
+                const options = {
+                    method: 'post',
+                    url:'/posts/score',
+                    data: {
+                        userid: userid,
+                        score: "SCORE: " + myGameArea.frameNo,
+                        iswinner: 1
+                        
+                        
+                    }
+                }
+
+
+                axios(options);
+
+                alert("Great! You Won!");
+                
+                
+            }
+
             curMSeconds = curMSeconds + 20;
             if(curMSeconds >= 5000 && totalenergy <= 100){
                 curMSeconds = 0;
@@ -174,17 +225,42 @@
                         
                         document.getElementById("energytxt").innerHTML = "Energy:"+totalenergy;
                         document.getElementById("percentageval").value = totalenergy;
+                        document.getElementById("progressBar").value = totalenergy;
                        
                         if(totalenergy <= 0)
                         {
-                            alert("Sorry! You loose!");
                             clearInterval(gameInterval);
+
+                            document.getElementById("energytxt").innerHTML = "Energy: 0";
+                            document.getElementById("percentageval").value = 0;
+                            document.getElementById("progressBar").value = 0;
+
+                            const options = {
+                                method: 'post',
+                                url:'/posts/score',
+                                data: {
+                                    userid: userid,
+                                    score: "SCORE: " + 0
+                                    
+                                    
+                                }
+                            }
+
+
+                            axios(options);
+
+                            alert("Sorry! You loose!");
+                            
                         }
+
+                        
 
                         setTimeout(function(){ iscrashed = false; }, 3000);
                     }
                   
                 } 
+
+                
             }
 
             myGameArea.clear();
@@ -219,14 +295,15 @@
         {
             myGamePiece.gravity = n;
             
-            if(totalenergy > 0)
+            if(totalenergy > 0 && myGameArea.frameNo <= 2100)
             {
                 const options = {
                     method: 'post',
                     url:'/posts/score',
                     data: {
                         userid: userid,
-                        score: "SCORE: " + myGameArea.frameNo
+                        score: "SCORE: " + myGameArea.frameNo,
+                        iswinner: 0
                         
                         
                     }

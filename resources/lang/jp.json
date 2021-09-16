@@ -18,7 +18,11 @@
     "Your name":"あなたの名前",
     "Your username": "あなたのユーザーネーム",
     "Start Game":"ゲームを始める",
+    "ACCELERATE":"加速する",
     "Please wait for others to join...":"他の人が参加するのを待ってください",
+   "Use the Accelerate button to stay in the air.":"空中にとどまるには、加速ボタンを使用します。",
+   "Avoid hitting the wall.":"壁にぶつからないようにしてください。",
+   "You will be the winner if you reach 2000!":"000に達すると、あなたが勝者になります！",
     "This is a test game. That allows multi-player to play simultaneosly.":"これはテストゲームです。これにより、マルチプレイヤーが同時にプレイできるようになります。",
     "This is your dashboard. This will show your information and personal game settings.":"これがダッシュボードです。これにより、あなたの情報と個人的なゲーム設定が表示されます。"
 }

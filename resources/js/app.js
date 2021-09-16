@@ -157,17 +157,18 @@ window.Echo.channel('chat').listen('.message', (e) =>
     {
         var result = JSON.parse(e.message);
         
+        console.log(result);
 
         if(document.getElementById("divuser"+result.userid))
         {
            var curStr = document.getElementById("divuser"+result.userid).innerHTML;
            curStr = curStr.substring(0, curStr.lastIndexOf(':') + 1);
            var res = (result.score).replace(/\D/g, "");
-            document.getElementById("divuser"+result.userid).innerHTML = curStr+res;
+            document.getElementById("divuser"+result.userid).innerHTML = curStr+res+' '+result.winner;
 
             if(result.userid == userid)
             {
-                document.getElementById("scoretxt").innerHTML = curStr+res; 
+                document.getElementById("scoretxt").innerHTML = curStr+res+' '+result.winner;
             }
                 
         }

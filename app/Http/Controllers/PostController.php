@@ -48,9 +48,17 @@ class PostController extends Controller
 
     public function score(Request $request)
     {
+        $iswinner = '';
+
+        if($request->input("iswinner") == '1'){
+
+            $iswinner = 'Winner';
+        }
+
         $userscore = array(
                     "userid"=>\Auth::id(), 
-                    "score"=>$request->input("score")
+                    "score"=>$request->input("score"),
+                    'winner' => $iswinner
                     );
 
         $userscore = json_encode($userscore);             
