@@ -1,4 +1,5 @@
 ## Game Test
+
 <img src="gameimage.png" alt="Italian Trulli">
 
 
@@ -45,3 +46,4 @@ see images below for instructions on how to play the game.
 <img src="entergame.png" alt="Italian Trulli">
 <img src="entergame2.png" alt="Italian Trulli">
 
+Note: Due to development time constraints, quality of graphics, UI, and UX are not that good.
