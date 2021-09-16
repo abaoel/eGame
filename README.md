@@ -38,7 +38,7 @@
 <img src="mysqlcli4.png" alt="Italian Trulli">
 
 7. Run the command: docker-compose exec php php /var/www/html/artisan migrate
-8. Runt the command: docker-compose exec php php /var/www/html/artisan db:seed --class=UserSeeder
+8. Run the command: docker-compose exec php php /var/www/html/artisan db:seed --class=UserSeeder
 
 Navigate to http://127.0.0.1:8000/
 
