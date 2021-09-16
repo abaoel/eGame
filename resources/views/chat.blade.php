@@ -19,6 +19,7 @@
         <header>
 
             <div class="float-left  p-6 "  id="game_container" style="position: absolute;">
+                <div id="canvas_container"></div>
                 <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">{{ __('ACCELERATE') }}</button>
                 <p>{{ __('Use the Accelerate button to stay in the air.') }}</p>
                 <p>{{ __('Avoid hitting the wall.') }}</p>
@@ -55,7 +56,7 @@
         </form>
     </div>
 
-    <div class="float-right bg-white p-6 rounded-lg" >
+    <div class="float-right bg-white p-6 rounded-lg" style="margin: 10px;">
         <h1><strong>{{ __('Players Online') }}</strong></h1>
         <div id="messages">
         @foreach ($users as $user)
@@ -92,7 +93,7 @@
                 document.getElementById("timer").innerHTML =
                   minute + " : " + sec;
                sec--;
-               if (sec == 00) {
+               if (sec == 00 && minute >= 0) {
                   minute--;
                   sec = 60;
                   
@@ -109,7 +110,8 @@
                 this.canvas.width = 480;
                 this.canvas.height = 270;
                 this.context = this.canvas.getContext("2d");
-                document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+                document.getElementById("canvas_container").appendChild(this.canvas);
+                //document.body.insertBefore(this.canvas, document.body.childNodes[0]);
                 this.frameNo = 0;
                 //this.interval = setInterval(updateGameArea, 20);
                 gameInterval = setInterval(updateGameArea, 20);
@@ -176,7 +178,7 @@
         var curMSeconds = 0;
         function updateGameArea() 
         {
-            if( minute <= 0)
+            if( minute < 0)
             {
                 document.getElementById("timer").innerHTML = "00:00 ";
 
@@ -199,7 +201,25 @@
 
                 axios(options);
 
-                alert("Great! You Won!");
+                if (confirm(`{{ __('Great Job! You Won! Yo you want to try again?') }}`)) 
+                {
+                    const options = {
+                        method: 'post',
+                        url:'/posts/score',
+                        data: {
+                            userid: userid,
+                            score: "SCORE: 0",
+                            iswinner: 0
+                            
+                            
+                        }
+                    }
+
+
+                    axios(options);
+                    location.reload();
+                } 
+                
                 
                 
             }
@@ -241,7 +261,7 @@
                                 url:'/posts/score',
                                 data: {
                                     userid: userid,
-                                    score: "SCORE: " + 0
+                                    score: "SCORE: 0"
                                     
                                     
                                 }
@@ -250,7 +270,27 @@
 
                             axios(options);
 
-                            alert("Sorry! You loose!");
+                            
+                            if (confirm(`{{ __('Sorry you lose, do you want to try again?') }}`)) 
+                            {
+                                const options = {
+                                    method: 'post',
+                                    url:'/posts/score',
+                                    data: {
+                                        userid: userid,
+                                        score: "SCORE: 0",
+                                        iswinner: 0
+                                        
+                                        
+                                    }
+                                }
+
+
+                                axios(options);
+                                location.reload();
+                            } 
+                            
+
                             
                         }
 

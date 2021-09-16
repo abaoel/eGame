@@ -25,6 +25,8 @@
    "Game ends in":"ゲームはで終わります",
    "Energy:":"エネルギー：",
    "Score:":"スコア：",
+   "Sorry you lose, do you want to try again?":"負けてすみません、もう一度やり直しますか？",
+   "Great Job! You Won! Yo you want to try again?":"よくやった！あなたが勝った！もう一度やり直したいですか？",
    "You will be the winner if you reach 2 minutes!":"2分に達するとあなたが勝者になります！",
     "This is a test game. That allows multi-player to play simultaneosly.":"これはテストゲームです。これにより、マルチプレイヤーが同時にプレイできるようになります。",
     "This is your dashboard. This will show your information and personal game settings.":"これがダッシュボードです。これにより、あなたの情報と個人的なゲーム設定が表示されます。"
