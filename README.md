@@ -32,7 +32,7 @@
    <img src="./images/dockercompose.png" alt="">
    
 3. Make sure you have Composer and NPM. Run Composer Install and NPM Install</br>
-   command: composer install
+   command: composer install</br>
    command: NPM install
    
 4. Make sure your Docker software is running and run the command below.</br>
