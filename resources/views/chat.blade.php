@@ -25,11 +25,11 @@
                 <p>{{ __('You will be the winner if you reach 2000!') }}</p>
                 </br>
                 
-                <p id="scoretxt">Score:0</p>
-                <p id="energytxt">Energy:100</p>
+                {{ __('Score:') }}<p id="scoretxt">0</p>
+                {{ __('Energy:') }}<p id="energytxt">100</p>
                 <progress value="100" max="100" id="progressBar"></progress>
                 </br>
-                Game ends in <span id="timer">09:00<span> minutes!
+                {{ __('Game ends in') }} <span id="timer">09:00<span> minutes!
                 
             </div> 
 
@@ -223,7 +223,7 @@
                         iscrashed = true;
                         totalenergy = totalenergy - 25;
                         
-                        document.getElementById("energytxt").innerHTML = "Energy:"+totalenergy;
+                        document.getElementById("energytxt").innerHTML = totalenergy;
                         document.getElementById("percentageval").value = totalenergy;
                         document.getElementById("progressBar").value = totalenergy;
                        
@@ -231,7 +231,7 @@
                         {
                             clearInterval(gameInterval);
 
-                            document.getElementById("energytxt").innerHTML = "Energy: 0";
+                            document.getElementById("energytxt").innerHTML = "0";
                             document.getElementById("percentageval").value = 0;
                             document.getElementById("progressBar").value = 0;
 

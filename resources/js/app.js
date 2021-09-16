@@ -168,7 +168,7 @@ window.Echo.channel('chat').listen('.message', (e) =>
 
             if(result.userid == userid)
             {
-                document.getElementById("scoretxt").innerHTML = curStr+res+' '+result.winner;
+                document.getElementById("scoretxt").innerHTML = res;
             }
                 
         }
