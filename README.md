@@ -29,7 +29,7 @@
    
    Edit the database credentials to your own credentials in the .env and docker-compose.yml file.
    <img src="./images/envfile.png" alt="">
-   <img src="./images/docker-compose.png" alt="">
+   <img src="./images/dockercompose.png" alt="">
    
 3. Make sure you have Composer and NPM. Run Composer Install and NPM Install</br>
    command: composer install
