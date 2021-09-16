@@ -44,6 +44,8 @@
 6. Create the database egame.
 <img src="./images/mysqlcli3.png" alt="">
 <img src="./images/mysqlcli4.png" alt="">
+</br>
+Exit from MySql container and go back to the main terminal/command in the egame folder.
 
 7. Run the command: docker-compose exec php php /var/www/html/artisan migrate
 8. Run the command: docker-compose exec php php /var/www/html/artisan db:seed --class=UserSeeder
