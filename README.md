@@ -13,7 +13,7 @@
 
 ## How to setup the game
 
-1. Create a folder on your Desktop and clone this repository to the folder.
+1. Create a folder on your Desktop and clone this repository to the folder.</br>
    command: git clone https://github.com/abaoel/eGame.git
 
 2. Change directory to the egame directory</br>
