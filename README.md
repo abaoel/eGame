@@ -10,6 +10,8 @@
  - Php 7.4
  - Mysql 8
 
+## Youtube Tutorial
+https://youtu.be/qOgKc3w3ZDg
 
 ## How to setup the game
 
