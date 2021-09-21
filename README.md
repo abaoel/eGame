@@ -5,7 +5,10 @@
 ## YouTube Tutorial
 https://www.youtube.com/watch?v=FPVnFZPErN4
 
-<iframe width="979" height="551" src="https://www.youtube.com/embed/FPVnFZPErN4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<video width="320" height="240" controls>
+  <source src="https://www.youtube.com/embed/FPVnFZPErN4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 
 ## Docker Environment
  
