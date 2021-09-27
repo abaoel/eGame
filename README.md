@@ -59,4 +59,4 @@ see images below for instructions on how to play the game.
 <img src="./images/entergame.png" alt="">
 <img src="./images/entergame2.png" alt="">
 
-Note: Due to development time constraints, quality of graphics, UI, and UX are not that good.
+
