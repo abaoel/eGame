@@ -52,7 +52,7 @@ https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubunt
 
 5. Clone Project Repo
 
-Create a folder on your Desktop and clone this repository to the folder. command: git clone https://github.com/abaoel/eGame.git .
+Create a folder on server and clone this repository to the folder. command: git clone https://github.com/abaoel/eGame.git .
 
 Copy the file .env.example to .env
 command: cp .env.example .env
