@@ -1,5 +1,5 @@
 version: "3.8"
-
+  
 services:
 
   #Apache
@@ -10,10 +10,10 @@ services:
     image: 'laravelapp'
     ports:
       - "8000:80"
-    volumes: 
+    volumes:
       - .:/var/www/html
-     
-    
+
+
     networks:
       - laraveldockerize
 
@@ -42,50 +42,21 @@ services:
       context: .
       dockerfile: ./dockerize/app/php.dockerfile
     container_name: lcp_php
-    volumes: 
+    volumes:
       - .:/var/www/html
-    ports: 
+    ports:
       - "9000:9000"
     networks:
-      - laraveldockerize 
+      - laraveldockerize
 
   #Composer Service
   composer:
     image: composer:latest
     container_name: lcp_composer
-    volumes: 
+    volumes:
       - .:/var/www/html
     working_dir: /var/www/html
-    depends_on: 
+    depends_on:
       - php
     networks:
-      - laraveldockerize    
-
-  #NPM Service
-  npm:
-    image: node:14.9
-    container_name: lcp_npm
-    volumes: 
-      - .:/var/www/html
-    working_dir: /var/www/html
-    entrypoint: ['npm']
-
-  #Artisan Service
-  artisan:
-    build: 
-      context: .
-      dockerfile: ./dockerize/app/php.dockerfile
-    container_name: lcp_artisan
-    volumes: 
-      - .:/var/www/html
-    depends_on: 
-      - mysql
-    working_dir: /var/www/html
-    entrypoint: ['php', '/var/www/html/artisan']
-    networks:
       - laraveldockerize
-
-
-#Docker Networks
-networks:
-  laraveldockerize:
