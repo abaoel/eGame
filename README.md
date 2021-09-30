@@ -1,62 +1,106 @@
-## Game Test
+Docker Instructions
 
-<img src="./images/gameimage.png" alt="Italian Trulli">
+1. Install Docker
 
-## YouTube Tutorial
-https://www.youtube.com/watch?v=FPVnFZPErN4
+// Update apt package
+sudo apt-get update
 
-## Docker Environment
- 
- - Linux/Ubuntu
- - Apache
- - Php 7.4
- - Mysql 8
+// Install packages to use a repository over HTTPS
+sudo apt-get install \
+	apt-transport-https \
+	ca-certificates \
+	curl \
+	gnupg \
+	lsb-release
+
+// Add docker’s official GPG key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+// Setup the docker repository
+echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+// Install docker engine
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+// verify docker engine is installed
+sudo docker run hello-world
+
+2. Install Docker Compose
+
+// Download stable release of docker compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+// Apply executable permissions to the binary
+sudo chmod +x /usr/local/bin/docker-compose
+
+// check if installed successfully
+docker-compose —version
+
+// if error, create a symbolic link 
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 
-## How to setup the game
+3. Install Composer
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-ubuntu-20-04
 
-1. Create a folder on your Desktop and clone this repository to the folder.</br>
-   command: git clone https://github.com/abaoel/eGame.git
+4. Install NodeJs and NPM
+Only Option 1 on the link below:
+https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04
 
-2. Change directory to the egame directory</br>
-   command: cd egame
+5. Clone Project Repo
 
-   Copy the file .env.example to .env</br>
-   command: cp .env.example .env
+Create a folder on your Desktop and clone this repository to the folder. command: git clone https://github.com/abaoel/eGame.git .
 
-   Edit the following in the .env to your own credentials. </br>
-   DB_DATABASE=egame</br>
-   DB_USERNAME=root</br>
-   DB_PASSWORD=*******</br>
-   
-   Edit the database credentials to your own credentials in the .env and docker-compose.yml file.
-   <img src="./images/envfile.png" alt="">
-   <img src="./images/dockercompose.png" alt="">
-   
-3. Make sure you have Composer and NPM. Run Composer Install and NPM Install</br>
-   command: composer install</br>
-   command: NPM install
-   
-4. Make sure your Docker software is running and run the command below.</br>
-   command: docker-compose up -d
+Copy the file .env.example to .env
+command: cp .env.example .env
 
-5. Open Docker for Mac or PC, then loging to the docker mysql container (see image below)
-<img src="./images/mysqlcli2.png" alt="">
+Replace all localhost with the IP address of your server.
 
-6. Create the database egame.
-<img src="./images/mysqlcli3.png" alt="">
-<img src="./images/mysqlcli4.png" alt="">
-</br>
-Exit from MySql container and go back to the main terminal/command in the egame folder.
-</br>
+Run command: sudo npm install in the folder.
 
-7. Run the command: docker-compose exec php php /var/www/html/artisan migrate
-8. Run the command: docker-compose exec php php /var/www/html/artisan db:seed --class=UserSeeder
+6. Build and run docker containers
 
-Navigate to http://127.0.0.1:8000/
+// Build using docker-compose
+sudo docker-compose build
 
-see images below for instructions on how to play the game.
-<img src="./images/entergame.png" alt="">
-<img src="./images/entergame2.png" alt="">
+// Run containers in the background
+sudo docker-compose up -d
 
+// Show list of containers
+sudo docker-compose ps
+
+
+7. Create Database egame in the MySql container
+
+Sudo docker exec -it {container_id} bash
+command: mysql -u root -p;
+Password: abao3023
+
+Show databases, if egame is not created then create it.
+Command: create database egame;
+
+8. Exit from MySql container then bash into the larvalapp container.
+Command: sudo docker exec -it {container_id} bash
+
+Run composer install
+Command: composer install
+
+Run migration
+Command: php artisan migrate
+
+Run seeder
+Command: php artisan db:seed --class=UserSeeder
+
+Laravel generate key and clear config cache
+Command: php artisan key:generate
+command: php artisan config:cache
+
+Storage Permission
+Command: chmod o+w ./storage/ -R
+
+Exit from the laravelapp container and visit
+http://ipaddress:8000
 
