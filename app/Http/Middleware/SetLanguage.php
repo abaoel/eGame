@@ -2,14 +2,16 @@
 
 namespace App\Http\Middleware;
 
+use Session;
+use App;
 use Closure;
 use Auth;
 use Cache;
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\facades\App;
-use Illuminate\Support\facades\Session;
+//use Illuminate\Support\facades\App;
+//use Illuminate\Support\facades\Session;
 
 class SetLanguage
 {
