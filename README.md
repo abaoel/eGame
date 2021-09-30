@@ -57,7 +57,7 @@ Create a folder on server and clone this repository to the folder. command: gi
 Copy the file .env.example to .env
 command: cp .env.example .env
 
-Replace all localhost with the IP address of your server.
+Replace all localhost with the IP address of your server on the .env file.
 
 Run command: sudo npm install in the folder.
 
