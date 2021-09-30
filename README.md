@@ -52,15 +52,15 @@ https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubunt
 
 5. Clone Project Repo
 
-Create a folder on server and clone this repository to the folder. command: git clone https://github.com/abaoel/eGame.git .
+Create a folder on server and clone this repository to the folder. </br> command: git clone https://github.com/abaoel/eGame.git .
 
-Copy the file .env.example to .env
+Copy the file .env.example to .env </br>
 command: cp .env.example .env
 
 Replace all localhost with the IP address of your server on the .env file.
-
+</br>
 Run command: sudo npm install in the folder.
-
+</br>
 6. Build and run docker containers
 
 // Build using docker-compose
