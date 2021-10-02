@@ -4,7 +4,7 @@
 <H4>Docker Instructions</H4>
 <br>
 
-1. Install Docker
+<strong>1. Install Docker</strong>
 
 // Update apt package </br>
 sudo apt-get update
