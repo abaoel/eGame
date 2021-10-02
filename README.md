@@ -1,7 +1,7 @@
 
 <a href="https://www.youtube.com/watch?v=GkL_Y4Ptc0A" target="_blank"><strong>YouTube Tutorial on Setting Docker Laravel</strong></a> 
 </br>
-<H1>Docker Instructions</sH1>
+<H4>Docker Instructions</H4>
 <br>
 
 1. Install Docker
