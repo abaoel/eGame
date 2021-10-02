@@ -1,5 +1,6 @@
 YouTube Tutorial </br>
-https://www.youtube.com/watch?v=GkL_Y4Ptc0A
+<a href="https://www.youtube.com/watch?v=GkL_Y4Ptc0A" target="_blank"><strong>YouTube Tutorial</strong></a> 
+
 </br></br>
 
 Docker Instructions
