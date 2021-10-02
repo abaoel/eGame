@@ -1,5 +1,7 @@
-<h1>Laravel Online Game (Multi User using Pusher)</h1>
-<a href="https://www.youtube.com/watch?v=GkL_Y4Ptc0A" target="_blank"><strong>YouTube Tutorial on Setting Docker Laravel</strong></a> 
+<h1>Laravel Online Game</h1>
+</br>
+<p> This is an online game platform that allows multiple gamers to play online. It was built in laravel 8 and and uses Pusher(https://pusher.com/) for realtime data between the players.</p>
+<a href="https://www.youtube.com/watch?v=GkL_Y4Ptc0A" target="_blank"><strong>YouTube Tutorial on Setting Up The Game on Linux/Ubuntu</strong></a> 
 </br>
 <H4>Docker Instructions</H4>
 <br>
