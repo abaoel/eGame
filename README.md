@@ -6,6 +6,7 @@
 
 <strong>1. Install Docker</strong>
 </br>
+</br>
 // Update apt package </br>
 sudo apt-get update
 </br></br>
@@ -48,14 +49,14 @@ docker-compose —version
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 </br></br>
-<strong>3. Install Composer</strong></br>
+<strong>3. Install Composer</strong></br></br>
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-ubuntu-20-04
 </br></br>
-4. Install NodeJs and NPM</br>
+<strong>4. Install NodeJs and NPM</strong></br></br>
 Only Option 1 on the link below:
 https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04
 </br></br>
-5. Clone Project Repo</br>
+<strong>5. Clone Project Repo</strong></br></br>
 
 Create a folder on server and clone this repository to the folder. </br> command: git clone https://github.com/abaoel/eGame.git .
 </br></br>
@@ -67,7 +68,7 @@ Replace all localhost with the IP address of your server on the .env file.
 </br>
 Run command: sudo npm install in the folder.
 </br></br>
-6. Build and run docker containers</br>
+<strong>6. Build and run docker containers</strong></br></br>
 
 // Build using docker-compose</br>
 sudo docker-compose build
@@ -79,7 +80,7 @@ sudo docker-compose up -d
 sudo docker-compose ps
 
 </br></br>
-7. Create Database egame in the MySql container</br>
+<strong>7. Create Database egame in the MySql container</strong></br></br>
 
 Sudo docker exec -it {container_id} bash</br>
 command: mysql -u root -p;</br>
@@ -88,7 +89,7 @@ Password: abao3023</br>
 Show databases, if egame is not created then create it.</br>
 Command: create database egame;
 </br></br>
-8. Exit from MySql container then bash into the larvalapp container.</br>
+<strong>8. Exit from MySql container then bash into the larvalapp container</strong></br></br>
 Command: sudo docker exec -it {container_id} bash
 </br></br>
 Run composer install</br>
