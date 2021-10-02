@@ -5,7 +5,7 @@
 <br>
 
 <strong>1. Install Docker</strong>
-
+</br>
 // Update apt package </br>
 sudo apt-get update
 </br></br>
@@ -32,7 +32,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 // verify docker engine is installed </br>
 sudo docker run hello-world
 </br></br>
-2. Install Docker Compose
+<strong>2. Install Docker Compose</strong>
 </br></br>
 // Download stable release of docker compose </br>
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -48,7 +48,7 @@ docker-compose —version
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 </br></br>
-3. Install Composer</br>
+<strong>3. Install Composer</strong></br>
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-ubuntu-20-04
 </br></br>
 4. Install NodeJs and NPM</br>
